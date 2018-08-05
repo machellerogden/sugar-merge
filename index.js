@@ -1,12 +1,14 @@
 'use strict';
 
-const merge = require('./lib/merge');
+const deepmerge = require('./lib/deepmerge');
 const process = require('./lib/process');
 const expand = require('./lib/expand');
 
 const sugar = {
+    expand,
     process,
-    merge: (acc, ...args) => process(merge(acc, ...args)),
+    deepmerge,
+    merge: (acc, ...args) => process(deepmerge(acc, ...args)),
     set: (obj, keypath, value) => process(expand(obj, keypath, value))
 };
 
