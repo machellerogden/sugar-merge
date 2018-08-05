@@ -4,7 +4,7 @@
 
 ## Merge
 
-```
+```js
 const { merge } = require('sugarmerge');
 
 const a = {
@@ -105,7 +105,7 @@ merge(a, d);
 
 ## Set
 
-```
+```js
 const { set } = require('sugarmerge');
 
 const obj = {
