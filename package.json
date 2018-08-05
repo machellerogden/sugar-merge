@@ -1,0 +1,15 @@
+{
+  "name": "sugarmerge",
+  "version": "0.0.0",
+  "description": "deepmerge utils with a little sugar on top",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Mac Heller-Ogden",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.10"
+  }
+}
