@@ -1,10 +1,14 @@
 'use strict';
 
-const { merge:deepmerge } = require('needful');
 const process = require('./lib/process');
 const expand = require('./lib/expand');
-const merge = (acc, ...args) => process(deepmerge(acc, ...args));
 const set = (obj, keypath, value) => process(expand(obj, keypath, value));
+const merge = (...args) => args.reduce((acc, obj) => {
+    Object.keys(obj).reduce((a, k) => {
+        acc = set(acc, k, obj[k]);
+    }, Array.isArray(obj) ? [] : {});
+    return acc;
+}, Array.isArray(args[0]) ? [] : {});
 
 const sugar = {
     expand,
