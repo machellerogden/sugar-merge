@@ -1,6 +1,6 @@
 {
   "name": "sugarmerge",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "deepmerge utils with a little sugar on top",
   "main": "index.js",
   "scripts": {
