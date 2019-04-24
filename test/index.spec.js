@@ -4,6 +4,29 @@ const expect = chai.expect;
 const { merge, set } = require('..');
 
 describe('merge', () => {
+    it('should work', () => {
+
+        expect(merge({
+            foo: {
+                bar: {
+                    baz: 'sis'
+                }
+            }
+        }, {
+            foo: {
+                bar: {
+                    xyzzy: 'bah'
+                }
+            }
+        })).to.eql({
+            foo: {
+                bar: {
+                    baz: 'sis',
+                    xyzzy: 'bah'
+                }
+            }
+        });
+    });
     it('[+] syntax should push to array', () => {
 
         expect(merge({
