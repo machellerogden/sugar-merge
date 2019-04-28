@@ -27,6 +27,57 @@ describe('merge', () => {
             }
         });
     });
+    it('should work with arrays', () => {
+
+        expect(merge([
+            {
+                foo: {
+                    bar: {
+                        baz: 'sis'
+                    }
+                }
+            }
+        ], [
+            {
+                foo: {
+                    bar: {
+                        xyzzy: 'bah'
+                    }
+                }
+            }
+        ])).to.eql([
+            {
+                foo: {
+                    bar: {
+                        baz: 'sis',
+                        xyzzy: 'bah'
+                    }
+                }
+            }
+        ]);
+    });
+    it('should work with nested properties containing array syntax', () => {
+
+        expect(merge({
+            foo: {
+                bar: {
+                    baz: [ 'sis', 'bah' ]
+                }
+            }
+        }, {
+            foo: {
+                bar: {
+                    'baz[1,0]': 'boom'
+                }
+            }
+        })).to.eql({
+            foo: {
+                bar: {
+                    baz: [ 'sis', 'boom', 'bah' ]
+                }
+            }
+        });
+    });
     it('[+] syntax should push to array', () => {
 
         expect(merge({
